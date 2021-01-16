@@ -21,6 +21,7 @@ var createElement = (element, elementClass, text) => {
 var elNewAnnouncementBtn = $_('.new-announcement-btn');
 var elAnnouncementForm = $_('.announcement-form');
 if (elAnnouncementForm) {
+  var elCloseBtn = $_('.close-btn', elAnnouncementForm);
   var elTitleInput = $_('.title-input', elAnnouncementForm);
   var elCompanyInput = $_('.company-input', elAnnouncementForm);
   var elTechInput = $_('.tech-input', elAnnouncementForm);
@@ -34,3 +35,11 @@ if (elAnnouncementForm) {
 };
 var elAnnouncementList = $_('.announcement-list');
 var elAnnouncementTemplate = $_('.announcement-template');
+
+elNewAnnouncementBtn.addEventListener('click', () => {
+  elAnnouncementForm.classList.add('announcement-form--open')
+});
+
+elCloseBtn.addEventListener('click', () => {
+  elAnnouncementForm.classList.remove('announcement-form--open')
+});

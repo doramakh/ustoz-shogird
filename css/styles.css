@@ -46,11 +46,21 @@ main {
   flex-grow: 1;
 } 
 
-.btn{
+.btn {
   display: flex;
   align-items: center;justify-content: center;
   width: 141px;
   padding: 16px;
   color: var(--white);
   background-color: var(--violet);
+}
+
+.announcement-form {
+  display: none;
+  flex-direction: column;
+  padding: 20px 30px;
+}
+
+.announcement-form--open {
+  display: flex;
 }

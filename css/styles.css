@@ -1,3 +1,15 @@
+:root {
+  --violet: #5964E0;
+  --ligt-violet: #939bf4;
+  --very-dark-blue: #19202d;
+  --midnight: #121721;
+  --white: #ffffff;
+  --light-grey: #f4f6f8;
+  --gray: #9daec2;
+  --dark-gray: #6e8098;
+  }
+
+
 html {
   box-sizing: border-box;
   height: 100%;
@@ -33,3 +45,12 @@ img {
 main {
   flex-grow: 1;
 } 
+
+.btn{
+  display: flex;
+  align-items: center;justify-content: center;
+  width: 141px;
+  padding: 16px;
+  color: var(--white);
+  background-color: var(--violet);
+}

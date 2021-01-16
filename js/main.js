@@ -8,7 +8,7 @@ var $$_ = (selector, node = document) => {
 
 var createElement = (element, elementClass, text) => {
   var newElement = document.createElement(element);
-
+  
   if (elementClass) {
     newElement.setAttribute('class', elementClass);
   };
@@ -17,4 +17,3 @@ var createElement = (element, elementClass, text) => {
     newElement.textContent = text;
   };
 };
-

@@ -10,19 +10,62 @@
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <h1 class="visually-hidden"></h1>
+  <h1 class="visually-hidden">Ustoz Shogird</h1>
   
   
   <header class="site-header">
-    <nav class="sitenav"></nav>
+    <div class="container header-container">
+      <a href="index.html">Ustoz-Shogird</a>
+
+      <button class="new-announcement-btn" type="button">New announcement</button>
+
+      <button class="theme-toggler-btn" type="button">theme</button>
+    </div>
   </header>
   
+  <section class="form-modal">
+    <form class="announcement-form" action="" method="GET">
+      <div>
+        <h2>New announcement</h2>
+        <button class="close-btn" type="button"></button>
+      </div>
+
+      <input class="title-input" type="text" name="title" id="title" placeholder="Title">
+      <input class="company-input" type="text" name="company" id="company" placeholder="Company">
+      <input class="tech-input" type="text" name="technology" id="technology" placeholder="Technologies">
+      <input class="telegram-input" type="text" name="telegram" id="telegram" placeholder="Telegram">
+      <input class="phone-number-input" type="text" name="phone-number" id="phone-number" placeholder="Phone number">
+      <input class="name-input" type="text" name="name" id="name" placeholder="Employer name">
+      <input class="salary-input" type="number" name="salary" id="salary" placeholder="Minimum salary">
+      <select class="location-select" name="location" id="location">
+        <option value="none" disabled selected>Choose your location</option>
+      </select>
+      <select class="worktime-select" name="worktime" id="worktime">
+        <option value="none" disabled selected>Worktime</option>
+      </select>
+      <textarea class="info-textarea" name="more-info" id="more-info"></textarea>
+
+      <button type="submit" class="add-btn">Add</button>
+    </form>
+  </section>
   
-  <main class="site-main"></main>
-  
+  <main class="site-main">
+    <section>
+      <ul class="announcement-list"></ul>
+    </section>
+  </main>
   
   <footer class="site-footer"></footer>
   
+  <template class="announcement-template">
+    <p class="announcement-title"></p>
+    <ul class="announcement-technologies">
+      <li class="announcement-technology"></li>
+    </ul>
+    <a href="tel:"></a>
+    <span class="announcement-location"></span>
+    <span class="announcementworktime"></span>
+  </template>
   <script src="js/main.js"></script>
 </body>
 </html> 

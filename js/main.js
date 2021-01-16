@@ -43,3 +43,31 @@ elNewAnnouncementBtn.addEventListener('click', () => {
 elCloseBtn.addEventListener('click', () => {
   elAnnouncementForm.classList.remove('announcement-form--open')
 });
+
+locations = ['Tashkent', 'Samarqand', 'Namangan', 'Bukhara', 'Andijan', 'Fergana', 'Surkhandarya', 'Khashkhadarya'];
+
+worktimes = ['8am-6pm', '8am-2pm', '2pm-10pm', '2pm-6pm'];
+
+var elLocationFragment = document.createDocumentFragment();
+
+locations.forEach(location => {
+  var locationOption = document.createElement('option');
+  locationOption.textContent = location;
+  locationOption.value = location;
+
+  elLocationFragment.appendChild(locationOption);
+});
+
+elLocationSelect.appendChild(elLocationFragment);
+
+var elWorktimeFragment = document.createDocumentFragment();
+
+worktimes.forEach(worktime => {
+  var worktimeOption = document.createElement('option');
+  worktimeOption.textContent = worktime;
+  worktimeOption.value = worktime;
+
+  elWorktimeFragment.appendChild(worktimeOption);
+});
+
+elWorktimeSelect.appendChild(elWorktimeFragment);

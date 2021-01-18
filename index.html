@@ -24,26 +24,26 @@
   </header>
   
   <section class="form-modal">
-    <form class="announcement-form" action="#" method="GET">
+    <form class="announcement-form" action="https://echo.htmlacademy.ru" method="GET">
       <div>
         <h2>New announcement</h2>
         <button class="close-btn" type="button">close</button>
       </div>
 
-      <input class="title-input" type="text" name="title" id="title" placeholder="Title">
-      <input class="company-input" type="text" name="company" id="company" placeholder="Company">
-      <input class="tech-input" type="text" name="technology" id="technology" placeholder="Technologies">
-      <input class="telegram-input" type="text" name="telegram" id="telegram" placeholder="Telegram">
-      <input class="phone-number-input" type="text" name="phone-number" id="phone-number" placeholder="Phone number">
-      <input class="name-input" type="text" name="name" id="name" placeholder="Employer name">
-      <input class="salary-input" type="number" name="salary" id="salary" placeholder="Minimum salary">
+      <input class="title-input" type="text" name="title" id="title" placeholder="Title" required>
+      <input class="company-input" type="text" name="company" id="company" placeholder="Company" required>
+      <input class="tech-input" type="text" name="technology" id="technology" placeholder="Technologies" required>
+      <input class="telegram-input" type="text" name="telegram" id="telegram" placeholder="Telegram" required>
+      <input class="phone-number-input" type="text" name="phone-number" id="phone-number" placeholder="Phone number" required>
+      <input class="name-input" type="text" name="name" id="name" placeholder="Employer name" required>
+      <input class="salary-input" type="number" name="salary" id="salary" placeholder="Minimum salary" required>
       <select class="location-select" name="location" id="location">
         <option value="none" disabled selected>Choose your location</option>
       </select>
       <select class="worktime-select" name="worktime" id="worktime">
         <option value="none" disabled selected>Worktime</option>
       </select>
-      <textarea class="info-textarea" name="more-info" id="more-info"></textarea>
+      <textarea class="info-textarea" name="more-info" id="more-info" required></textarea>
 
       <button type="submit" class="add-btn">Add</button>
     </form>
@@ -59,12 +59,12 @@
   
   <template class="announcement-template">
     <p class="announcement-title"></p>
-    <ul class="announcement-technologies">
+    <!-- <ul class="announcement-technologies">
       <li class="announcement-technology"></li>
-    </ul>
-    <a href="tel:"></a>
+    </ul> -->
+    <a class="announcement-phone-link" href="tel:"></a>
     <span class="announcement-location"></span>
-    <span class="announcementworktime"></span>
+    <span class="announcement-worktime"></span>
   </template>
   <script src="js/main.js"></script>
 </body>

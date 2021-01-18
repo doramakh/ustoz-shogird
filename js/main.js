@@ -72,14 +72,53 @@ worktimes.forEach(worktime => {
 
 elWorktimeSelect.appendChild(elWorktimeFragment);
 
-announcements = [];
+// ADDING NEW ANNOUNCEMENTS
 
-elAnnouncementFragment = document.createDocumentFragment();
+var addCard = array => {
+  elAnnouncementList.innerHTML = '';
+  elAnnouncementFragment = document.createDocumentFragment(); 
+
+  array.forEach(announcement => {
+     var elAnnouncement = elAnnouncementTemplate.cloneNode(true);
+    
+    elAnnouncement.querySelector('.announcement-title').textContent = announcement.title;
+    
+    var elTechnologiesFragment = document.createDocumentFragment();
+    
+    var technologies = [];
+    for (var announcement of announcements) {
+      for (var technology of announcement.technologies) {
+        technologies.push(technology);
+      };
+    };
+    technologies.forEach(item => {
+      var technologyItem = document.createElement('li');
+      technologyItem.textContent = item;
+      
+      elTechnologiesFragment.appendChild(technologyItem)
+    });
+    
+    elAnnouncement.querySelector('.announcement-technologies').appendChild(elTechnologiesFragment);
+    
+    elAnnouncement.querySelector('.announcement-phone-link').textContent = announcement.phoneNumber;
+    elAnnouncement.querySelector('.announcement-location').textContent = announcement.location;
+    elAnnouncement.querySelector('.announcement-worktime').textContent = announcement.worktime;
+    
+    elAnnouncementFragment.appendChild(elAnnouncement);
+  });
+
+  elAnnouncementList.appendChild(elAnnouncementFragment)
+};
+
+var announcements =  JSON.parse(localStorage.getItem('savedAns')) || [];
+addCard(announcements);
+
 elAnnouncementForm.addEventListener('submit', function(evt){
   evt.preventDefault();
+
   var title = elTitleInput.value;
   var company = elCompanyInput.value;
-  var techhnology = elTechInput.value;
+  var technology = elTechInput.value.split(',');
   var telegram = elTelegramInput.value;
   var phoneNumber = elPhoneNumberInput.value;
   var name = elNameInput.value;
@@ -91,7 +130,7 @@ elAnnouncementForm.addEventListener('submit', function(evt){
   announcements.push({
     title: title,
     company: company,
-    techhnology: techhnology,
+    technologies: technology,
     telegram: telegram, 
     phoneNumber: phoneNumber, 
     name: name,
@@ -100,32 +139,10 @@ elAnnouncementForm.addEventListener('submit', function(evt){
     salary: salary,
     info: info 
   });
-  
-  console.log(announcements)
-  // // list.innerhtml clean?
-  
-  announcements.forEach(announcement => {
-    elAnnouncement = elAnnouncementTemplate.cloneNode(true);
-    
-    elAnnouncement.querySelector('.announcement-title').textContent = announcement.title;
-    elAnnouncement.querySelector('.announcement-phone-link').textContent = announcement.phoneNumber;
-    elAnnouncement.querySelector('.announcement-location').textContent = announcement.location;
-    elAnnouncement.querySelector('.announcement-worktime').textContent = announcement.worktime;
-    
-    elAnnouncementFragment.appendChild(elAnnouncement);
-    
-    elCompanyInput.value = '';
-    elTechInput.value = '';
-    elTelegramInput.value = '';
-    elPhoneNumberInput.value = '';
-    elNameInput.value = '';
-    elLocationSelect.value = 'none';
-    elWorktimeSelect.value = 'none';
-    elSalaryInput.value = '';
-    elInfoTextarea.value = '';
-  });
-  elAnnouncementList.appendChild(elAnnouncementFragment);
-  
-});
 
+  elAnnouncementForm.reset();
+  localStorage.setItem('savedAns', JSON.stringify(announcements));
+
+  addCard(announcements);
+});
 
